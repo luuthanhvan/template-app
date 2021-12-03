@@ -1,7 +1,13 @@
+import Header from '../common/Header';
 
 const Users = () => {
   return (
-    <div>Users work!</div>
+    <Header 
+      titlePage="Khách hàng"
+      filterTitle="Chọn trạng thái"
+      filterData={['Active', 'Inactive']}
+      btnLabel="Thêm người dùng"
+    />
   );
 };
 

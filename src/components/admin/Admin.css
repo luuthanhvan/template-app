@@ -83,3 +83,18 @@
   font-weight: bold;
   color: #ffffff;
 }
+
+.admin-content-header {
+  width: calc(100vw - 350px);
+  margin: 10px auto;
+}
+
+.admin-content-header .admin-content-header-title {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.admin-content-table {
+  width: calc(100vw - 300px);
+  margin: 10px auto;
+}
