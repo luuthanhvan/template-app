@@ -46,7 +46,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.admin-sidebar-container .admin-sidebar-content .admin-sidebar-brand-name{
+.admin-sidebar-container .admin-sidebar-content .admin-sidebar-brand-name {
   color: #c8d92e;
   margin-top: 16px;
   text-align: center;
@@ -94,7 +94,28 @@
   margin-left: 10px;
 }
 
-.admin-content-table {
+.admin-content-table,
+.admin-form-container {
   width: calc(100vw - 300px);
   margin: 10px auto;
+}
+
+.admin-form-content .row .col{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.checkbox-field {
+  margin-top: 40px;
+}
+
+.admin-form-btn-row {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.admin-form-btn-row .btn {
+  margin-left: 10px;
+  margin-right: 10px;
 }

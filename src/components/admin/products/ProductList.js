@@ -1,4 +1,8 @@
+import { NavLink, useLocation } from 'react-router-dom';
+
 const ProductList = ({products}) => {
+  const location = useLocation();
+
   return (
     <div className="admin-content-table">
       <table className="table table-striped table-hover">
@@ -24,9 +28,11 @@ const ProductList = ({products}) => {
                 <td>
                   <div className="row">
                     <div className="col-2">
-                      <button type="button" className="btn btn-secondary">
-                        Sửa
-                      </button>
+                      <NavLink to={`${location.pathname}/edit`}>
+                        <button type="button" className="btn btn-secondary">
+                          Sửa
+                        </button>
+                      </NavLink>
                     </div>
                     <div className="col-2">
                       <button type="button" className="btn btn-danger">
