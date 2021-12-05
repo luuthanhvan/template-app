@@ -1,7 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { deleteProduct } from "../../../services/product";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, onDelete }) => {
   const location = useLocation();
 
   return (
@@ -44,11 +43,8 @@ const ProductList = ({ products }) => {
                       <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={() => {
-                          deleteProduct(product._id).then((res) => {
-                            console.log(res);
-                          });
-                        }}
+                        value={product._id}
+                        onClick={onDelete}
                       >
                         Xóa
                       </button>

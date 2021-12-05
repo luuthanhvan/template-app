@@ -3,3 +3,68 @@
   font-style: italic;
   font-size: 14px;
 }
+
+.spinner-container {
+  margin-top: 200px;
+}
+
+.spinner-container .spinner {
+  width: 50px;
+  height: 50px;
+}
+
+.toast-container {
+  width: 300px;
+  height: 50px;
+  background-color: #adb5bd;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  -moz-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 3s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.toast-container p {
+  color: white;
+  font-weight: bold;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 18px;
+  padding-top: 10px;
+  font-style: italic;
+}
+
+.toast-success {
+  background-color: #198754;
+}
+
+.toast-error {
+  background-color: #dc3545;
+}
+
+.toast-warning {
+  background-color: #ffc107;
+}
