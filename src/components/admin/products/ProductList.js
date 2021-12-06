@@ -43,6 +43,8 @@ const ProductList = ({ products, onDelete }) => {
                       <button
                         type="button"
                         className="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#confirmDeleteProductModal"
                         value={product._id}
                         onClick={onDelete}
                       >

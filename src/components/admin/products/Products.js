@@ -4,28 +4,33 @@ import ProductList from "./ProductList";
 import { getProducts, deleteProduct } from "../../../services/product";
 import Spinner from "../../common/Spinner";
 import ToastMessage from "../../common/ToastMessage";
-import { Modal } from 'bootstrap';
 import ConfirmModal from "../../common/ConfirmModal";
-import $ from "jquery";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [productID, setProductID] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const handleDelete = (event) => {
-    const productID = event.target.value;
-    // show confirmation modal
-    let modal = new Modal($("#deleteProductModal"));
-    modal.show();
-    $("#confirmBtn").on("click", function () {
-      setIsLoading(true);
+  const onDelete = (event) => {
+    setProductID(event.target.value);
+  };
+
+  const handleDelete = () => {
+    try {
       deleteProduct(productID).then(() => {
-        setShowToast(true);
         setIsLoading(false);
+        setShowToast(true);
+        setToastMessage("Xóa sản phẩm thành công!");
+        setIsSuccess(true);
       });
-      modal.hide();
-    });
+    } catch (error) {
+      setToastMessage(error.message);
+      setIsError(true);
+    }
   };
 
   useEffect(() => {
@@ -48,14 +53,21 @@ const Products = () => {
               filterData={["Sen", "anc"]}
               btnLabel="Thêm sản phẩm"
             />
-            <ProductList products={products} onDelete={handleDelete} />
+            <ProductList products={products} onDelete={onDelete} />
             <ConfirmModal
               title="Xác nhận"
-              modalName="deleteProductModal"
+              modelName="confirmDeleteProductModal"
               content="Bạn có thực sự muốn xóa sản phẩm này không?"
+              primaryBtnLabel="OK"
+              secondaryBtnLabel="Bỏ qua"
+              onClickConfirmBtn={handleDelete}
             />
             {showToast ? (
-              <ToastMessage message="Xóa sản phẩm thành công!" success />
+              <ToastMessage
+                message={toastMessage}
+                success={isSuccess}
+                error={isError}
+              />
             ) : (
               <></>
             )}
