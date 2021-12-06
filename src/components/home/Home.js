@@ -1,7 +1,15 @@
+import './Home.css';
+import NavBar from './NavBar';
+import Categories from './Categories';
 
 const Home = () => {
   return (
-    <div>Home work!</div>
+    <div className="container-fluid">
+      <NavBar />
+      <div className="home-content-container">
+        <Categories />
+      </div>
+    </div>
   );
 };
 

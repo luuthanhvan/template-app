@@ -1,0 +1,44 @@
+.home-navbar-container {
+  margin-top: 20px;
+  background-color: #6f42c1;
+}
+
+.home-content-container {
+  margin-top: 20px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  overflow: scroll;
+}
+
+.home-navbar-container,
+.home-content-container {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.logo {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.home-card-container .card-title {
+  text-align: center;
+}
+
+.home-card-container .card-btn {
+  text-align: center;
+}
+
+.home-categories-title {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.home-category-card-container {
+  width: fit-content;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
