@@ -18,7 +18,7 @@ const Products = () => {
   const onDelete = (event) => {
     setProductID(event.target.value);
   };
-
+  
   const handleDelete = () => {
     try {
       deleteProduct(productID).then(() => {

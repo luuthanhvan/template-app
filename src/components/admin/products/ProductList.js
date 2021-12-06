@@ -1,7 +1,11 @@
+import React, { useState } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
+import ModalWrapper from "../../common/ModalWapper";
+import ProductDetail from "./ProductDetail";
 
 const ProductList = ({ products, onDelete }) => {
   const location = useLocation();
+  const [product, setProduct] = useState({});
 
   return (
     <div className="admin-content-table">
@@ -51,6 +55,17 @@ const ProductList = ({ products, onDelete }) => {
                         Xóa
                       </button>
                     </div>
+                    <div className="col-4">
+                      <button
+                        type="button"
+                        className="btn btn-info"
+                        data-bs-toggle="modal"
+                        data-bs-target="#productDetailModal"
+                        onClick={() => { setProduct(product) }}
+                      >
+                        Chi tiết
+                      </button>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -58,6 +73,12 @@ const ProductList = ({ products, onDelete }) => {
           })}
         </tbody>
       </table>
+
+      <ModalWrapper
+        title="Chi tiết sản phẩm"
+        modelName="productDetailModal"
+        contents={<ProductDetail product={product} />}
+      />
     </div>
   );
 };
