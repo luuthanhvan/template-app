@@ -1,10 +1,22 @@
 const Products = require("../models/Product");
+const baseUrl = "http://localhost:5000";
 
 class ProductController {
   async storeProduct(req, res) {
-    // console.log("data:", req.body);
+    console.log("data:", req.body);
+    console.log("file information: ", req.file); // result from uploaded file using multer
+    
     try {
-      const product = new Products(req.body);
+      const pathToFile = `/files/${req.file.filename}`;
+      const data = req.body;
+      const product = new Products({
+        productName: data.productName,
+        category: data.category,
+        price: data.price,
+        status: data.status,
+        image: pathToFile,
+        description: data.description,
+      });
       await product.save().then(() => {
         const responseObj = {
           message: "Store a product successfully!",
@@ -25,6 +37,9 @@ class ProductController {
   async getAllProducts(req, res) {
     try {
       await Products.find({}).then((products) => {
+        products.forEach(product => {
+          product.image = baseUrl + product.image;
+        }); 
         const responseObj = {
           message: "Fetch all products successfully!",
           data: products,
@@ -47,6 +62,7 @@ class ProductController {
       const productID = req.params.productID;
 
       await Products.find({ _id: productID }).then((product) => {
+        product.image = baseUrl + product.image;
         const responseObj = {
           message: "Fetch a product successfully!",
           data: product,

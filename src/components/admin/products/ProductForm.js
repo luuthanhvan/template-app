@@ -12,7 +12,13 @@ const listOfCategories = [
   { key: "5", value: "Lan" },
 ];
 
-const ProductForm = ({ title, productData, onSubmit, isEditForm }) => {
+const ProductForm = ({
+  title,
+  productData,
+  onSubmit,
+  isEditForm,
+  onChooseFile,
+}) => {
   const history = useHistory();
 
   const initialValues = {
@@ -64,7 +70,12 @@ const ProductForm = ({ title, productData, onSubmit, isEditForm }) => {
                     <label htmlFor="image" className="form-label">
                       Hình ảnh
                     </label>
-                    <input type="file" id="image" className="form-control" />
+                    <input
+                      type="file"
+                      id="image"
+                      className="form-control"
+                      onChange={onChooseFile}
+                    />
                   </div>
 
                   <div className="col">

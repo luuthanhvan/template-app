@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
         <div className="container">
           <div className="row">
             <div className="col">
-              <img src="/images/sen_da_hong.jpg" width="200" height="200" />
+              <img src={product.image} width="200" height="200" />
             </div>
             <div className="col">
               <div className="row">

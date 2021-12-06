@@ -1,11 +1,15 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const db = require("./config/dbConnection");
+const path = require('path');
+const db = require("./configs/dbConnection");
 const routes = require("./routes");
 dotenv.config({ path: "../.env" });
 
 app = express();
+
+// Static files configuration
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Database connection
 db.connect();
